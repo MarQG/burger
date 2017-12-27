@@ -50,9 +50,9 @@ module.exports = {
     updateOne: function(table, objColVals, condition, callback){
         var query = `UPDATE ${table} SET ${objectToSql(objColVals)} WHERE ${condition}`;
         console.log(query);
-        connection.query(query, funciton(err, data){
+        connection.query(query, function(err, data){
             if(err) throw err;
             callback(data);
-        })
+        });
     }
 };
