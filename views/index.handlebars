@@ -1,7 +1,23 @@
 <h1>Welcome To Eat-Da-Burger</h1>
 
+<ol>
+    {{#each burgers}}
+        {{#unless devoured}}
+            {{> burger/ready burger_id=id}}
+        {{/unless}}
+    {{/each}}
+</ol>
+
+<ol>
+    {{#each burgers}}
+        {{#if devoured}}
+            {{> burger/eaten }}
+        {{/if}}
+    {{/each}}
+</ol>
+
 <h2>Please Enter a Burger to eat.</h2>
-<form action="" method="PUT">
-    <textarea name="newBurger" id="new-burger" cols="30" rows="10"></textarea>
+<form id="new-burger-form">
+    <textarea name="newBurger" id="new-burger-name" cols="30" rows="10"></textarea>
     <button type="submit">Submit</button>
 </form>

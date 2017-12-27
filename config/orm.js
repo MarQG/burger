@@ -39,10 +39,10 @@ module.exports = {
         });
     },
     insertOne: function(table, columns, values, callback){
-        var query = `INSERT INTO ${table} (${cols.toString()}) VALUES (${generateQuestionMarks(vals.length)}) `;
+        var query = `INSERT INTO ${table} (${columns.toString()}) VALUES (${generateQuestionMarks(values.length)}) `;
         console.log(query);
 
-        connection.query(query, vals, function(err, data){
+        connection.query(query, values, function(err, data){
             if(err) throw err;
             callback(data);
         });
