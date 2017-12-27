@@ -12,15 +12,25 @@ $('document').ready(function(){
         });
     });
 
-    $("#new-burger-form").submit(function(e){
-        e.preventDefault();
-        $.ajax("api/burgers", {
-            type: "POST",
-            data: {
-                "name": $("#new-burger-name").val().trim()
+    $("#new-burger-form").form({
+            fields: {
+                newBurger: {
+                identifier: 'newBurger',
+                rules: [{
+                    type: 'empty',
+                    prompt: 'Please enter a burger'
+                    }]
+                }
+            },onSuccess:function(e){
+                e.preventDefault();
+                $.ajax("api/burgers", {
+                    type: "POST",
+                    data: {
+                        "name": $("#new-burger-name").val().trim()
+                    }
+                }).then(function(){
+                    location.reload();
+                });
             }
-        }).then(function(){
-            location.reload();
         });
-    })
 });

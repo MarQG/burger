@@ -1,3 +1,12 @@
 body{
-    background: #51279e;
+    background: rgb(172, 62, 19);
+    color: #FFFFFF;
+}
+
+label{
+    color: #ffffff !important;
+}
+
+.burger-display{
+    border-radius: 0.5rem !important;
 }
