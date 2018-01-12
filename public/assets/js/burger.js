@@ -12,6 +12,16 @@ $('document').ready(function(){
         });
     });
 
+    $(".clean-buttons").on("click", function(){
+        var id = $(this).data("burger-id");
+        console.log(id)
+        $.ajax( "api/burgers/" + id ,{
+            type: "DELETE",
+        }).then(function(){
+            location.reload();
+        });
+    });
+
     $("#new-burger-form").form({
             fields: {
                 newBurger: {

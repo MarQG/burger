@@ -15,5 +15,10 @@ module.exports = {
         orm.updateOne('burgers', objColsVals, condition, function(res){
             callback(res);
         });
+    },
+    delete: function(condition, callback){
+        orm.removeOne('burgers', condition, function(res){
+            callback(res);
+        });
     }
 };

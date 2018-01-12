@@ -54,5 +54,13 @@ module.exports = {
             if(err) throw err;
             callback(data);
         });
+    },
+    removeOne: function(table, condition, callback){
+        var query = `DELETE FROM ${table} WHERE ${condition}`;
+        console.log(query);
+        connection.query(query, function(err, data){
+            if(err)throw err;
+            callback(data);
+        })
     }
 };
